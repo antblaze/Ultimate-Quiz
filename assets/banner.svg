@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-label="Ultimate Quiz Challenge neon banner">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f0c29"/>
+      <stop offset="0.5" stop-color="#302b63"/>
+      <stop offset="1" stop-color="#24243e"/>
+    </linearGradient>
+
+    <!-- Neon gradient for text -->
+    <linearGradient id="neonGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff6ec7"/>
+      <stop offset="0.5" stop-color="#7afcff"/>
+      <stop offset="1" stop-color="#8aff6e"/>
+    </linearGradient>
+
+    <!-- Soft multi-layer glow -->
+    <filter id="glowSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur1"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Stronger blur for outer glow -->
+    <filter id="glowStrong" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle grain (decorative) -->
+    <filter id="grain">
+      <feTurbulence baseFrequency="0.8" numOctaves="1" stitchTiles="stitch" result="turb"/>
+      <feColorMatrix type="saturate" values="0" in="turb" result="mono"/>
+      <feBlend in="SourceGraphic" in2="mono" mode="overlay"/>
+    </filter>
+
+    <!-- small decorative star shape as symbol -->
+    <symbol id="spark" viewBox="-6 -6 12 12">
+      <path d="M0,-6 L1.5,-1 L6,0 L1.5,1 L0,6 L-1.5,1 L-6,0 L-1.5,-1 Z" fill="#fff" opacity="0.9"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- subtle vignette -->
+  <rect width="100%" height="100%" fill="black" opacity="0.12"/>
+
+  <!-- decorative blurred shapes -->
+  <ellipse cx="220" cy="80" rx="180" ry="60" fill="#ff6ec7" opacity="0.08" filter="url(#glowSoft)"/>
+  <ellipse cx="1060" cy="110" rx="200" ry="70" fill="#7afcff" opacity="0.06" filter="url(#glowSoft)"/>
+  <ellipse cx="640" cy="280" rx="420" ry="60" fill="#8aff6e" opacity="0.04" filter="url(#glowSoft)"/>
+
+  <!-- left question-mark badge -->
+  <g transform="translate(110 180)">
+    <circle r="72" fill="#0b0f1a" stroke="url(#neonGrad)" stroke-width="3" filter="url(#glowStrong)"/>
+    <text x="0" y="12" font-family="Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="72" fill="url(#neonGrad)" text-anchor="middle" font-weight="700">?</text>
+  </g>
+
+  <!-- Main neon text (multi-layer for glow + crisp center) -->
+  <!-- Outer heavy glow -->
+  <text x="650" y="140" text-anchor="middle" font-family="Poppins, 'Segoe UI', Roboto, Arial, sans-serif"
+        font-weight="800" font-size="56" fill="#ff6ec7" opacity="0.85" filter="url(#glowStrong)" letter-spacing="2">
+    Ultimate Quiz
+  </text>
+
+  <!-- Secondary outer glow layer -->
+  <text x="650" y="140" text-anchor="middle" font-family="Poppins, 'Segoe UI', Roboto, Arial, sans-serif"
+        font-weight="800" font-size="56" fill="url(#neonGrad)" opacity="0.9" filter="url(#glowSoft)" letter-spacing="2">
+    Ultimate Quiz
+  </text>
+
+  <!-- Crisp top text with stroke -->
+  <text x="650" y="140" text-anchor="middle" font-family="Poppins, 'Segoe UI', Roboto, Arial, sans-serif"
+        font-weight="900" font-size="56" fill="white" stroke="rgba(0,0,0,0.15)" stroke-width="0.8" letter-spacing="2">
+    Ultimate Quiz
+  </text>
+
+  <!-- Sub-line "Challenge" -->
+  <text x="650" y="210" text-anchor="middle" font-family="Poppins, 'Segoe UI', Roboto, Arial, sans-serif"
+        font-weight="700" font-size="42" fill="url(#neonGrad)" stroke="rgba(0,0,0,0.12)" stroke-width="0.6" filter="url(#glowSoft)" letter-spacing="1.4">
+    Challenge
+  </text>
+
+  <!-- small sparks -->
+  <use href="#spark" x="420" y="60" transform="scale(1.6) rotate(12)" opacity="0.9" />
+  <use href="#spark" x="840" y="50" transform="scale(1.2) rotate(-20)" opacity="0.7" />
+  <use href="#spark" x="980" y="230" transform="scale(1.0) rotate(30)" opacity="0.55" />
+
+  <!-- bottom subtle divider glow -->
+  <rect x="160" y="250" width="960" height="2" fill="url(#neonGrad)" opacity="0.18" filter="url(#glowSoft)"/>
+</svg>
